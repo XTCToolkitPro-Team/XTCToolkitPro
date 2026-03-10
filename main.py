@@ -34,15 +34,30 @@ def pre_menu():
     print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键进入  &lt;</ansibrightblack>"), style=style, end='')
     getch()
 
+def about():
+    os.system("cls")
+    print_formatted_text(HTML("<ansiwhite>"+logo+"</ansiwhite>"), style=style)
+    print("="*50)
+    print("作者 TT_chen")
+    print("="*50)
+    print("开发版本 v0.1.0")
+    print()
+    print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键退出  &lt;</ansibrightblack>"), style=style, end='')
+    getch()
+
 def menu():
     while True:
         os.system("cls")
+        print_formatted_text(HTML("<ansiwhite>"+logo+"</ansiwhite>"), style=style)
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
         result = choice(message="",options=[
             ("1","关于脚本"),
             ("2","退出")])
-        if result == "2":
+        if result == "1":
+            about()
+        elif result == "2":
             break
+    os.system("cls")
 
 if __name__ == "__main__":
     os.system("title TTWatchBox by TTchen")
