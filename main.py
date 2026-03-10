@@ -79,7 +79,7 @@ def menu():
             ("exit","退出")])
         if result == "cmd":
             os.system("cls")
-            print_formatted_text(HTML(info+"已进入cmd"), style=style)
+            print_formatted_text(HTML(info+"已进入cmd，输入exit退出"), style=style)
             os.system("cmd")
         elif result == "about":
             about()
