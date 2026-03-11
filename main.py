@@ -90,11 +90,13 @@ def tools():
                 print_formatted_text(HTML(error+"传屏失败！"), style=style)
             else:
                 print_formatted_text(HTML(success+"传屏完成！"), style=style)
+            print()
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
             getch()
         else:
             os.system("cls")
             print_formatted_text(HTML(warning+"功能开发中！"), style=style)
+            print()
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
             getch()
 
@@ -128,6 +130,7 @@ def menu():
         else:
             os.system("cls")
             print_formatted_text(HTML(warning+"功能开发中！"), style=style)
+            print()
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
             getch()
 
