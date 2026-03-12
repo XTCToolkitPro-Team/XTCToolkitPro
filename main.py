@@ -34,6 +34,11 @@ def pre_menu():
     os.system("cls")
     print_formatted_text(HTML(logo), style=style)
     print_formatted_text(HTML(info+"欢迎来到TTWacthBox！"), style=style)
+    print_formatted_text(HTML(info+"正在启动adb服务……"), style=style)
+    if os.system("adb start-server"):
+        print_formatted_text(HTML(error+"启动失败！"), style=style)
+    else:
+        print_formatted_text(HTML(success+"启动完成！"), style=style)
     print_formatted_text(HTML(warning+"你现在正在使用开发版本"), style=style)
     print_formatted_text(HTML(warning+"调试模式已开启！"), style=style)
     print_formatted_text(HTML(warning+"关于版权：由于玩机工具或多或少都会涉及版权问题，因此本工具仅供技术交流，请不要商用，下载后24小时删除！"), style=style)
@@ -50,7 +55,7 @@ def about():
     print("作者 TT_chen")
     print("TTchen Dev Team 开发")
     print("="*50)
-    print("开发版本 v0.1.5-alpha.1")
+    print("开发版本 v0.1.6-alpha.1")
     print("请勿泄露开发版本！！！")
     print()
     print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键退出 &lt;</ansibrightblack>"), style=style, end='')
@@ -163,7 +168,7 @@ def menu():
         elif result == "about":
             about()
         elif result == "exit":
-            os.system("cls")
+            os.system("cls && adb kill-server")
             break
         elif result == "debug":
             debug_menu()
