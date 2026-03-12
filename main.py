@@ -197,6 +197,22 @@ def apk_menu():
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
             getch()
 
+def links():
+    while True:
+        os.system("cls")
+        print_formatted_text(HTML(logo), style=style)
+        print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
+        result = choice(message="",options=[
+            ("0", "超级恢复文件（来自ATB）")
+            ("exit","退出")])
+        links_list=[
+            "https://www.123865.com/s/Q5JfTd-hEbWH"
+        ]
+        if result == "exit":
+            break
+        else:
+            os.system("start "+links_list[int(result)])
+
 def menu():
     while True:
         os.system("cls")
@@ -208,6 +224,7 @@ def menu():
             ("cmd","在此处打开cmd[含adb调试环境]"),
             ("about","关于脚本"),
             ("tools","常用工具"),
+            ("links","链接合集"),
             ("more_menu","高级菜单"),
             ("wifi","无线连接[尝鲜版]"),
             ("debug","调试菜单"),
@@ -237,6 +254,8 @@ def menu():
             print()
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
             getch()
+        elif result == "links":
+            links()
         else:
             os.system("cls")
             print_formatted_text(HTML(warning+"功能开发中！"), style=style)
