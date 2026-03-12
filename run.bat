@@ -12,6 +12,7 @@ rd /s /q run_build 2>nul
 mkdir run_build
 copy main.py run_build\main.py
 xcopy /s /e /y scripts run_build
+xcopy /s /e /y include run_build
 xcopy /s /e /y tools run_build
 cd run_build
 python main.py
