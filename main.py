@@ -89,6 +89,7 @@ def tools():
         print_formatted_text(HTML(info+"请使用方向键/数字键选择一个选项，按Enter确认。"), style=style, end='')
         result = choice(message="",options=[
             ("scrcpy","传屏"),
+            ("image","导入图片"),
             ("exit","退出")])
         if result == "exit":
             break
@@ -102,6 +103,27 @@ def tools():
             print()
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
             getch()
+        elif result == "image":
+            os.system("cls")
+            root = tk.Tk()
+            root.withdraw()
+            file_types = [
+                ("图片", "*.jpg *.jpeg *.png *.gif *.bmp *.tiff *.ai *.cdr *.eps"),
+                ("所有文件", "*.*")
+            ]
+            file_path = filedialog.askopenfilename(
+                title="选择图片",
+                filetypes=file_types
+            )
+            root.destroy()
+            if file_path:
+                if os.system("adb push \""+file_path+"\" /storage/emulated/0/DCIM/Camera"):
+                    print_formatted_text(HTML(error+"传入失败！"), style=style)
+                else:
+                    print_formatted_text(HTML(success+"传入完成！"), style=style)
+                print()
+                print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+                getch()
         else:
             os.system("cls")
             print_formatted_text(HTML(warning+"功能开发中！"), style=style)
@@ -133,7 +155,7 @@ def apk_menu():
             )
             root.destroy()
             if file_path:
-                if os.system("adb install "+file_path):
+                if os.system("adb install \""+file_path+"\""):
                     print_formatted_text(HTML(error+"安装失败！"), style=style)
                 else:
                     print_formatted_text(HTML(success+"安装完成！"), style=style)
