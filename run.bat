@@ -7,6 +7,7 @@ if not exist .run (
     echo.>.run
 )
 echo 正在复制文件
+run_build\adb.exe kill-server 2>nul
 rd /s /q run_build 2>nul
 mkdir run_build
 copy main.py run_build\main.py
