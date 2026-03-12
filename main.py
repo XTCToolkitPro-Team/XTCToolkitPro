@@ -57,7 +57,7 @@ def about():
     print("作者 TT_chen")
     print("TTchen Dev Team 开发")
     print("="*50)
-    print("开发版本 v0.1.7-alpha.1")
+    print("开发版本 v0.1.8-alpha.1")
     print("请勿泄露开发版本！！！")
     print()
     print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键退出 &lt;</ansibrightblack>"), style=style, end='')
