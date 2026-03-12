@@ -55,7 +55,7 @@ def about():
     print("作者 TT_chen")
     print("TTchen Dev Team 开发")
     print("="*50)
-    print("开发版本 v0.1.6-alpha.1")
+    print("开发版本 v0.1.7-alpha.1")
     print("请勿泄露开发版本！！！")
     print()
     print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键退出 &lt;</ansibrightblack>"), style=style, end='')
@@ -180,7 +180,8 @@ def menu():
             ("cmd","在此处打开cmd[含adb调试环境]"),
             ("about","关于脚本"),
             ("tools","常用工具"),
-            ("menu","高级菜单"),
+            ("more_menu","高级菜单"),
+            ("wifi","无线连接[尝鲜版]"),
             ("debug","调试菜单"),
             ("exit","退出")])
         if result == "cmd":
@@ -198,6 +199,16 @@ def menu():
             tools()
         elif result == "apks":
             apk_menu()
+        elif result == "wifi":
+            os.system("cls")
+            print_formatted_text(HTML(info+"请输入IP地址："), style=style, end="")
+            adb_ip=input()
+            print_formatted_text(HTML(info+"请输入端口："), style=style, end="")
+            adb_port=input()
+            os.system("adb connect "+adb_ip+":"+adb_port)
+            print()
+            print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+            getch()
         else:
             os.system("cls")
             print_formatted_text(HTML(warning+"功能开发中！"), style=style)
