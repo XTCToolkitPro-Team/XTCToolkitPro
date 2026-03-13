@@ -120,6 +120,7 @@ def tools():
         result = choice(message="",options=[
             ("scrcpy","传屏"),
             ("image","导入图片"),
+            ("vedio","导入视频"),
             ("getcode_zj","计算自检校验码"),
             ("getcode_adb","计算ADB校验码[仅支持V2以下]"),
             ("exit","退出")])
@@ -150,6 +151,27 @@ def tools():
             root.destroy()
             if file_path:
                 if os.system("adb push \""+file_path+"\" /storage/emulated/0/DCIM/Camera"):
+                    print_formatted_text(HTML(error+"传入失败！"), style=style)
+                else:
+                    print_formatted_text(HTML(success+"传入完成！"), style=style)
+                print()
+                print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+                getch()
+        elif result == "vedio":
+            os.system("cls")
+            root = tk.Tk()
+            root.withdraw()
+            file_types = [
+                ("视频", "*.mp4 *.avi"),
+                ("所有文件", "*.*")
+            ]
+            file_path = filedialog.askopenfilename(
+                title="选择视频",
+                filetypes=file_types
+            )
+            root.destroy()
+            if file_path:
+                if os.system("adb push \""+file_path+"\" /storage/emulated/0/DCIM/Video"):
                     print_formatted_text(HTML(error+"传入失败！"), style=style)
                 else:
                     print_formatted_text(HTML(success+"传入完成！"), style=style)
