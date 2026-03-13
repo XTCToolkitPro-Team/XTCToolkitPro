@@ -11,6 +11,8 @@ import os
 
 import getcode
 
+import random
+
 style = Style.from_dict({
     'error': 'fg:ansired',
     'warning': 'fg:ansiyellow',
@@ -162,7 +164,7 @@ def tools():
             root = tk.Tk()
             root.withdraw()
             file_types = [
-                ("视频", "*.mp4 *.avi"),
+                ("视频", "*.mp4"),
                 ("所有文件", "*.*")
             ]
             file_path = filedialog.askopenfilename(
@@ -171,7 +173,7 @@ def tools():
             )
             root.destroy()
             if file_path:
-                if os.system("adb push \""+file_path+"\" /storage/emulated/0/DCIM/Video"):
+                if os.system("adb push \""+file_path+"\" /storage/emulated/0/DCIM/Video/XTCToolkitPro"+str(random.randint(11111,99999))+".mp4"):
                     print_formatted_text(HTML(error+"传入失败！"), style=style)
                 else:
                     print_formatted_text(HTML(success+"传入完成！"), style=style)
