@@ -240,7 +240,7 @@ def menu():
         if result == "cmd":
             os.system("cls")
             print_formatted_text(HTML(info+"已进入cmd，输入exit退出"), style=style)
-            os.system("cmd")
+            os.system("set \"PROMPT=(XTCToolkitPro) %PROMPT%\" && cmd")
         elif result == "about":
             about()
         elif result == "exit":
