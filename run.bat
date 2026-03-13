@@ -4,8 +4,14 @@ cd %~dp0
 if not exist .run (
     echo 正在安装依赖……
     pip install -r requirements.txt
-    echo.>.run
+    echo 请下载adb调试工具和scrcpy至tools文件夹！
+    pause
+    if not exist tools (
+        goto check
+    )
 )
+:start
+echo.>.run
 echo 正在复制文件
 main\adb.exe kill-server 2>nul
 rd /s /q main 2>nul
@@ -17,3 +23,11 @@ xcopy /s /e /y tools main
 cd main
 python main.py
 cd ..
+:check
+echo 未检测到tools文件夹！
+echo 请下载adb调试工具和scrcpy至tools文件夹！
+pause
+if not exist tools (
+    goto check
+)
+goto start
