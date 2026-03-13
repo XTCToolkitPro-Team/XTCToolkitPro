@@ -4,7 +4,7 @@ cd %~dp0
 if not exist .run (
     echo 正在安装依赖……
     pip install -r requirements.txt
-    echo 请下载adb调试工具和scrcpy至tools文件夹！
+    echo 请下载adb调试工具、scrcpy等相关工具至tools文件夹！
     pause
     if not exist tools (
         goto check
@@ -26,7 +26,7 @@ cd ..
 exit /b
 :check
 echo 未检测到tools文件夹！
-echo 请下载adb调试工具和scrcpy至tools文件夹！
+echo 请下载adb调试工具、scrcpy等相关工具至tools文件夹！
 pause
 if not exist tools (
     goto check
