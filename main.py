@@ -147,6 +147,7 @@ def tools():
             ("scrcpy","传屏"),
             ("image","导入图片"),
             ("vedio","导入视频"),
+            ("bilibili_vedio","导入哔哩哔哩视频"),
             ("getcode_zj","计算自检校验码"),
             ("getcode_adb","计算ADB校验码[仅支持V2以下]"),
             ("qmmi","进入qmmi"),
@@ -199,6 +200,18 @@ def tools():
             root.destroy()
             if file_path:
                 if os.system("adb push \""+file_path+"\" /storage/emulated/0/DCIM/Video/TTWatchBox"+str(random.randint(11111,99999))+".mp4"):
+                    print_formatted_text(HTML(error+"传入失败！"), style=style)
+                else:
+                    print_formatted_text(HTML(success+"传入完成！"), style=style)
+                print()
+                print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
+                getch()
+        elif result == "bilibili_vedio":
+            os.system("cls")
+            print_formatted_text(HTML(info+"请输入视频链接："), style=style, end="")
+            link = input()
+            if link:
+                if os.system("you-get -o vedio -O vedio.mp4 "+link+" && adb push vedio/vedio.mp4 /storage/emulated/0/DCIM/Video/TTWatchBox"+str(random.randint(11111,99999))+".mp4"):
                     print_formatted_text(HTML(error+"传入失败！"), style=style)
                 else:
                     print_formatted_text(HTML(success+"传入完成！"), style=style)
