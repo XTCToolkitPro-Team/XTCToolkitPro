@@ -1,7 +1,7 @@
 @echo off
 chcp 65001
 
-set /p model=%1
+set model=%1
 if "!model!" == "1" set innermodel=I20&goto FLASH-QMMI 
 if "!model!" == "2" set innermodel=I25&goto FLASH-QMMI
 if "!model!" == "3" set innermodel=I25C&goto FLASH-QMMI
