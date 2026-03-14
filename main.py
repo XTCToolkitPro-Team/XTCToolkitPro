@@ -129,7 +129,7 @@ def qmmi():
             ("5","Z8"),
             ("6","Z8A"),
             ("7","Z9"),
-            ("8","Z10")
+            ("8","Z10"),
             ("exit","退出")])
         if result == "exit":
             break
@@ -229,6 +229,8 @@ def tools():
             print()
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
             getch()
+        elif result == "qmmi":
+            qmmi()
         else:
             os.system("cls")
             print_formatted_text(HTML(warning+"功能开发中！"), style=style)
