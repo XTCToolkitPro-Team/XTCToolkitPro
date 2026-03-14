@@ -113,6 +113,7 @@ def debug_menu():
             break
     os.system("cls")
 
+"""
 def qmmi():
     while True:
         os.system("cls")
@@ -134,6 +135,7 @@ def qmmi():
         else:
             os.system("cls")
             os.system("qmmi "+result)
+"""
 
 def tools():
     while True:
@@ -227,8 +229,9 @@ def tools():
             print()
             print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键继续 &lt;</ansibrightblack>"), style=style, end='')
             getch()
+            """
         elif result == "qmmi":
-            qmmi()
+            qmmi()"""
         else:
             os.system("cls")
             print_formatted_text(HTML(warning+"功能开发中！"), style=style)
