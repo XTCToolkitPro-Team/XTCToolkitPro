@@ -309,7 +309,7 @@ def links():
         result = choice(message="",options=[
             ("0","超级恢复文件（来自ATB）"),
             ("1","应用合集"),
-            ("2","官网")
+            ("2","官网"),
             ("exit","退出")])
         links_list=[
             "https://www.123865.com/s/Q5JfTd-hEbWH",
