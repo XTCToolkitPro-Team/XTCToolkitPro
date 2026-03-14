@@ -63,16 +63,14 @@ def lolcat_simple(text):
 def pre_menu():
     os.system("cls")
     lolcat_simple(logo)
-    print_formatted_text(HTML(info+"欢迎来到XTCToolkitPro！"), style=style)
+    print_formatted_text(HTML(info+"欢迎来到TTWatchBox！"), style=style)
     print_formatted_text(HTML(info+"正在启动adb服务……"), style=style)
     if os.system("adb start-server"):
         print_formatted_text(HTML(error+"启动失败！"), style=style)
     else:
         print_formatted_text(HTML(success+"启动完成！"), style=style)
-    print_formatted_text(HTML(info+"我们的官网：xtctoolkit.top"), style=style)
     print_formatted_text(HTML(warning+"你现在正在使用开发版本"), style=style)
     print_formatted_text(HTML(warning+"调试模式已开启！"), style=style)
-    print_formatted_text(HTML(info+"py版本的主菜单为分支版本，主版本为纯bat！"), style=style)
     print_formatted_text(HTML(warning+"关于版权：由于玩机工具或多或少都会涉及版权问题，因此本工具仅供技术交流，请不要商用，下载后24小时删除！"), style=style)
     print_formatted_text(HTML(warning+"关于版权：如果您实在觉得我们严重侵犯了您的版权，请立刻联系作者整改删除"), style=style)
     print_formatted_text(HTML(warning+"关于解绑：本工具不提供任何解绑服务，如果您捡到了手表，请立刻联系当地110机关归还原主"), style=style)
@@ -84,10 +82,10 @@ def about():
     os.system("cls")
     lolcat_simple(logo)
     print("="*50)
-    print("作者 TT_chen & 衍曲")
-    print("XTCToolkitPro Team 开发")
+    print("作者 TT_chen")
+    print("TTWatchBox Team 开发")
     print("="*50)
-    print("开发版本 v0.2.3-alpha.1（py分支版本）")
+    print("开发版本 v0.2.3-alpha.1")
     print("开发版本存在较多未知的bug，非开发人员请勿使用此版本！！！")
     print()
     print_formatted_text(HTML("<ansibrightblack>&gt; 请按任意键退出 &lt;</ansibrightblack>"), style=style, end='')
@@ -198,7 +196,7 @@ def tools():
             )
             root.destroy()
             if file_path:
-                if os.system("adb push \""+file_path+"\" /storage/emulated/0/DCIM/Video/XTCToolkitPro"+str(random.randint(11111,99999))+".mp4"):
+                if os.system("adb push \""+file_path+"\" /storage/emulated/0/DCIM/Video/TTWatchBox"+str(random.randint(11111,99999))+".mp4"):
                     print_formatted_text(HTML(error+"传入失败！"), style=style)
                 else:
                     print_formatted_text(HTML(success+"传入完成！"), style=style)
@@ -309,12 +307,10 @@ def links():
         result = choice(message="",options=[
             ("0","超级恢复文件（来自ATB）"),
             ("1","应用合集"),
-            ("2","官网"),
             ("exit","退出")])
         links_list=[
             "https://www.123865.com/s/Q5JfTd-hEbWH",
-            "https://www.123684.com/s/Q5JfTd-ZEbWH",
-            "https://xtctoolkit.top/"
+            "https://www.123684.com/s/Q5JfTd-ZEbWH"
         ]
         if result == "exit":
             break
@@ -342,7 +338,7 @@ def menu():
         if result == "cmd":
             os.system("cls")
             print_formatted_text(HTML(info+"已进入cmd，输入exit退出"), style=style)
-            os.system("set \"PROMPT=(XTCToolkitPro) %PROMPT%\" && cmd")
+            os.system("set \"PROMPT=(TTWatchBox) %PROMPT%\" && cmd")
         elif result == "about":
             about()
         elif result == "exit":
@@ -374,6 +370,6 @@ def menu():
             getch()
 
 if __name__ == "__main__":
-    os.system("title XTCToolkitPro by 衍曲")
+    os.system("title TTWatchBox by TTchen")
     pre_menu()
     menu()
