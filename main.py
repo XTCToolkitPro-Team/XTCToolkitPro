@@ -396,6 +396,8 @@ def menu():
             getch()
         elif result == "links":
             links()
+        elif result == "dev_tools":
+            dev_tools()
         else:
             os.system("cls")
             print_formatted_text(HTML(warning+"功能开发中！"), style=style)
